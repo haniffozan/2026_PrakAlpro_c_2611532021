@@ -9,5 +9,5 @@ print()
 print("Departemen Informatika")
 print("Universitas Andalas")
 print("/ \\ // \\\\ /// \\\\\\")
-print("program ini " + "dibuat oleh a\n" 
+print("program ini " + "dibuat oleh a.n\n" 
 + "Muhmammad Hanif Fauzan 2611532021")
