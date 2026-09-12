@@ -3,13 +3,8 @@
 # memasukkan nilai panjang dan lebar persegi panjang.
 # nilai yang dimasukkan akan dikonversi menjadi tipe data integer
 
-def main():
-    panjang_2021 = input("Masukkan nilai panjang: ")
-    lebar_2021 = input("Masukkan nilai lebar: ")
-    luas_2021 = int(panjang_2021) * int(lebar_2021)
+panjang_2021 = input("Masukkan nilai panjang: ")
+lebar_2021 = input("Masukkan nilai lebar: ")
+luas_2021 = int(panjang_2021) * int(lebar_2021)
 
-    print("Luas persegi panjang adalah: ", luas_2021)
-
-if __name__ == "__main__":
-    main()
-    
+print("Luas persegi panjang adalah: ", luas_2021)    
