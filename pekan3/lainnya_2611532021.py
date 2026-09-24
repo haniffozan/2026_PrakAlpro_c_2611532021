@@ -9,7 +9,7 @@ print("========================================")
 # input beberapa data yang dipisahkan dengan koma
 input_data_2021 = input("Masukkan beberapa angka, pisahkan dengan koma: ")
 
-# mengibah nilai input menjadi list integer
+# mengubah nilai input menjadi list integer
 data_2021 = [int(angka.strip()) for angka in input_data_2021.split(",")]
 
 nilai_dicari_2021 = int(input("Masukkan nilai yang ingin dicari: "))
