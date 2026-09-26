@@ -1,0 +1,122 @@
+# tugas 4
+# menerapkan konsep if, if-else, if-elif-else, multi if, match-case
+
+# 1. masukkan nama pengunjung dan umur
+print("=== SISTEM LOKET ALPRO ADVENTURE PARK ===")
+nama_pengunjung_2021 = input("Masukkan nama pengunjung: ")
+umur_pengunjung_2021 = int(input("Input umur anda: "))
+if umur_pengunjung_2021 < 10:
+    print("Maaf, syarat umur minimal untuk menikmati wahana adalah 10 tahun.")
+    print(f"Umur anda saat ini: {umur_pengunjung_2021} tahun.")
+    print("Pembayaran tidak bisa dilanjutkan.")
+    exit()
+
+# 2. tanyakan SIM dan cek apakah user memasukkan "ya" atau atau "y"
+# tampilkan pilihan paket
+sim_2021 = input("Apakah anda sudah punya SIM C (y/t):").strip().lower()[0]
+paket_2021 = """
+Pilihan Paket Wahana (1-5):
+    1. "Wahana Safari Rimba" | Harga Satuan: Rp 50.000
+    2. "Wahana Arung Jeram" | Harga Satuan: Rp 75.000
+    3. "Wahana Motor ATV Ekstrim" | Harga Satuan: Rp 120.000
+    4. "Wahana Roller Coaster Kilat" | Harga Satuan: Rp 100.000
+    5. "Wahana All-Access VIP" | Harga Satuan: Rp 220.000"""
+print(paket_2021)
+
+# 3. paket yang mana, berapa tiket, member atau tidak, validasi promo
+paket_dipilih_2021 = int(input("Masukkan nomor paket (1-5): "))
+jumlah_tiket_2021 = int(input("Masukkan jumlah tiket: "))
+if jumlah_tiket_2021 <= 0:
+    print("Jumlah tiket tidak valid.\nPembayaran tidak bisa dilanjutkan.")
+    exit(1) # berhenti jika input user salah
+
+is_member_2021 = input("Apakah Anda Member? (y/t): ").strip().lower()[0]
+validasi_promo_2021 = input("Apakah Promo Valid? (y/t): ").strip().lower()[0]
+
+# 4. deklarasi beberapa variabel dan menentukan case untuk tiap wahana
+safari_2021 = 50000
+arung_2021 = 75000
+atv_2021 = 120000
+coaster_2021 = 100000
+vip_2021 = 220000
+subtotal_2021 = 0
+umur_minimal_2021 = 17 # umur minimal naik atv
+
+match paket_dipilih_2021:
+    case 1: # Safari Rimba 50rb
+        subtotal_2021 += safari_2021 * jumlah_tiket_2021
+
+    case 2: # Arung Jeram 75rb
+        subtotal_2021 += arung_2021 * jumlah_tiket_2021
+
+    case 3: # motor ATV ekstrim 120rb dan dengan syarat tertentu
+        subtotal_2021 += atv_2021 * jumlah_tiket_2021
+
+    case 4: # roller coaster kilat 100rb
+        subtotal_2021 += coaster_2021 * jumlah_tiket_2021
+
+    case 5: # All-access VIP
+        subtotal_2021 += vip_2021 * jumlah_tiket_2021
+
+    case _:
+        print("Paket wahana tidak valid!")
+
+# 5. menentukan diskon dan harga akhir
+total_diskon_2021 = 0
+
+# diskon belanja besar
+if subtotal_2021 >= 200:
+    total_diskon_2021 += 10
+
+# diskon member
+if is_member_2021 == 'y':
+    total_diskon_2021 += 5
+
+# diskon kode voucher promo
+if validasi_promo_2021 == 'y':
+    total_diskon_2021 += 15
+
+# diskon tambahan rombongan
+if jumlah_tiket_2021 >= 5:
+    total_diskon_2021 += 5
+
+# souvenir
+souvenir_2021 = "..."
+if subtotal_2021 > 300000:
+    souvenir_2021 = "Selamat! Anda berhak mendapatkan Souvenir Gratis."
+
+else:
+    souvenir_2021 = "Terima kasih telah berkunjung."
+
+nominal_diskon_2021 = subtotal_2021 * (total_diskon_2021/100)
+total_bayar_2021 = subtotal_2021 - nominal_diskon_2021
+
+# 6. syarat untuk atv atau vip (paket vip juga perlu syarat ini karena paket vip memungkinkan
+# pembeli menggunakan ATV sehingga pembeli harus memenuhi persyaratan umur dan sim)
+if paket_dipilih_2021 == 3 or paket_dipilih_2021 == 5:
+    print("\n--- KELAYAKAN PENGENDARA WAHANA ---")
+
+if (paket_dipilih_2021 == 3 or paket_dipilih_2021 == 5) and umur_pengunjung_2021 >= 17 and sim_2021 == 'y':
+    print("Status  Akses: Anda sudah dewasa dan boleh mengendarai ATV sendiri.")
+
+elif (paket_dipilih_2021 == 3 or paket_dipilih_2021 == 5) and umur_pengunjung_2021 >= 17 and sim_2021 != 'y':
+    print("Status  Akses: Anda sudah dewasa tetapi tidak boleh bawa motor ATV (wajib didampingi instruktur)")
+
+elif (paket_dipilih_2021 == 3 or paket_dipilih_2021 == 5) and umur_pengunjung_2021 < 17 and sim_2021 == 'y':
+    print("Status  Akses: Identitas tidak valid: Belum cukup umur tapi sudah punya SIM\nPembayaran tidak bisa dilanjutkan.")
+    exit(2)
+
+# catatan: berdasarkan instruksi dari codata, seharusnya baris kode dibawah ini adalah `else` dan 
+# bukan `elif`. tapi tidak mungkin rasanya kode bisa berjalan dengan benar jika conditional di akhir 
+# menggunakan `else` dan bukan `elif`
+elif (paket_dipilih_2021 == 3 or paket_dipilih_2021 == 5) and umur_pengunjung_2021 < 17 and sim_2021 == 'y':
+    print("Status  Akses: Anda belum cukup umur dan tidak boleh bawa motor ATV.\nPembayaran tidak bisa dilanjutkan.")
+    exit(3)
+
+# 7. print rincian pembayaran
+print("--- Rincian Pembayaran ---")
+print(f"Subtotal Belanja: Rp {subtotal_2021:,.0f}")
+print(f"Total Diskon: {total_diskon_2021}% (Rp {nominal_diskon_2021:,.0f})")
+print(f"Total Bayar: Rp {total_bayar_2021:,.0f}")
+print("Catatan Layanan: ", souvenir_2021)
+print("Program Selesai.")
