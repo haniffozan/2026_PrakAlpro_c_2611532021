@@ -60,6 +60,7 @@ match paket_dipilih_2021:
 
     case _:
         print("Paket wahana tidak valid!")
+        exit(2)
 
 # 5. menentukan diskon dan harga akhir
 total_diskon_2021 = 0
@@ -94,7 +95,7 @@ total_bayar_2021 = subtotal_2021 - nominal_diskon_2021
 # 6. syarat untuk atv atau vip (paket vip juga perlu syarat ini karena paket vip memungkinkan
 # pembeli menggunakan ATV sehingga pembeli harus memenuhi persyaratan umur dan sim)
 if paket_dipilih_2021 == 3 or paket_dipilih_2021 == 5:
-    print("\n--- KELAYAKAN PENGENDARA WAHANA ---")
+    print("\n\n--- KELAYAKAN PENGENDARA WAHANA ---")
 
 if (paket_dipilih_2021 == 3 or paket_dipilih_2021 == 5) and umur_pengunjung_2021 >= 17 and sim_2021 == 'y':
     print("Status  Akses: Anda sudah dewasa dan boleh mengendarai ATV sendiri.")
@@ -104,17 +105,17 @@ elif (paket_dipilih_2021 == 3 or paket_dipilih_2021 == 5) and umur_pengunjung_20
 
 elif (paket_dipilih_2021 == 3 or paket_dipilih_2021 == 5) and umur_pengunjung_2021 < 17 and sim_2021 == 'y':
     print("Status  Akses: Identitas tidak valid: Belum cukup umur tapi sudah punya SIM\nPembayaran tidak bisa dilanjutkan.")
-    exit(2)
+    exit(3)
 
 # catatan: berdasarkan instruksi dari codata, seharusnya baris kode dibawah ini adalah `else` dan 
 # bukan `elif`. tapi tidak mungkin rasanya kode bisa berjalan dengan benar jika conditional di akhir 
 # menggunakan `else` dan bukan `elif`
 elif (paket_dipilih_2021 == 3 or paket_dipilih_2021 == 5) and umur_pengunjung_2021 < 17 and sim_2021 == 'y':
     print("Status  Akses: Anda belum cukup umur dan tidak boleh bawa motor ATV.\nPembayaran tidak bisa dilanjutkan.")
-    exit(3)
+    exit(4)
 
 # 7. print rincian pembayaran
-print("--- Rincian Pembayaran ---")
+print("\n\n--- Rincian Pembayaran ---")
 print(f"Subtotal Belanja: Rp {subtotal_2021:,.0f}")
 print(f"Total Diskon: {total_diskon_2021}% (Rp {nominal_diskon_2021:,.0f})")
 print(f"Total Bayar: Rp {total_bayar_2021:,.0f}")
