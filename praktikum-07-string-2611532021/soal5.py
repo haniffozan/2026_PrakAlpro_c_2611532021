@@ -3,7 +3,7 @@
 # Question 5
 
 # A
-username = input("Username: ")
+"""username = input("Username: ")
 
 if len(username) < 5:
     print("Invalid: at least 5 characters")
@@ -20,13 +20,12 @@ else:
 #   "Invalid: letters and digits only"
 #   "Invalid: must start with a letter"
 #   "Valid"
-
+"""
 # B
+
 nim = input("Masukkan NIM anda: ")
 digit_required = 10
-if len(nim) != digit_required:
-    print("Invalid NIM: at least 10 digits")
-elif nim.isdigit() == False:
-    print("Invalid NIM: digits only")
+if len(nim) != digit_required or nim.isdigit() == False:
+    print("Invalid NIM")
 else:
-    print("Intake 20" + nim[:2])
+    print("Valid, Intake 20" + nim[:2])
