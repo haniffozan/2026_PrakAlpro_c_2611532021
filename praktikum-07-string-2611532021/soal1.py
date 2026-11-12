@@ -1,6 +1,6 @@
 # Name: Muhammad Hanif Fauzan
 # NIM: 2611532021
-# Question 1
+# Question 1 
 
 name = "HANIF"
 print(name[0])
