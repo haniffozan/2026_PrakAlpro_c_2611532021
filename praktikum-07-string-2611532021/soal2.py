@@ -1,6 +1,6 @@
 # Name: Muhammad Hanif Fauzan
 # NIM: 2611532021
-# Question 2
+# Question 2 
 
 text = "  belajar python di kampus  "
 clean = text.strip()
