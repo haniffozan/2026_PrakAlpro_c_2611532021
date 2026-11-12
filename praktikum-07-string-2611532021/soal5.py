@@ -3,7 +3,7 @@
 # Question 5 
 
 # A
-"""username = input("Username: ")
+username = input("Username: ")
 
 if len(username) < 5:
     print("Invalid: at least 5 characters")
@@ -20,7 +20,7 @@ else:
 #   "Invalid: letters and digits only"
 #   "Invalid: must start with a letter"
 #   "Valid"
-"""
+
 # B
 
 nim = input("Masukkan NIM anda: ")
