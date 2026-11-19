@@ -1,4 +1,4 @@
-"""playlist = ["Lagu A", "Lagu B", "Lagu C", "Lagu D"]
+playlist = ["Lagu A", "Lagu B", "Lagu C", "Lagu D"]
 playlist.append("Lagu E")
 playlist.insert(1, "Lagu F")
 played = playlist.pop(0)
@@ -11,7 +11,7 @@ for item in notifications:
     if item == "promo":
         notifications.remove(item)
 print(notifications)
-"""
+
 
 notes = ["intro", "list", "tuple"]
 shared = notes

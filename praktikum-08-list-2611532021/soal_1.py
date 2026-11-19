@@ -11,3 +11,4 @@ for i in range(len(screen_minutes)):
         heavy_days += 1
 print(total, highest, heavy_days)
 print(total / len(screen_minutes))
+ 
